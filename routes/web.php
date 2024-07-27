@@ -54,8 +54,8 @@ Route::post('/customer_register', [CustomerController::class, 'customer_register
 Route::get('/customer_logout', [CustomerController::class, 'customer_logout'])->name('Frontend.pages.customer_logout');
 
 //shiping
-Route::post('/shiping_details',[CheckoutController::class,'shiping_details'])->name('Frontend.shiping_details');
-// Route::get('/payment',[CheckoutController::class,'payment'])->name('Frontend.pages.payment');
+Route::post('/save_shipping_details', [CheckoutController::class, 'save_shipping_details'])->name('Frontend.pages.save_shipping_details');
+Route::get('/payment', [CheckoutController::class, 'payment'])->name('Frontend.pages.payment');
 
 
 //Dashboard route

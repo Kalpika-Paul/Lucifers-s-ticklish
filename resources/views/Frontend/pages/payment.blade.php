@@ -2,7 +2,9 @@
 
 @section('content')
    <!-- Order Details -->
-   <div class="col-md-5 order-details">
+   <div class = "col-md-4"></div>
+   <div class="col-md-4 order-details" style= " margin-top:100px; margin-bottom:50px">
+  
     <div class="section-title text-center">
         <h3 class="title">Your Order</h3>
     </div>
@@ -11,23 +13,23 @@
             <div><strong>PRODUCT</strong></div>
             <div><strong>TOTAL</strong></div>
         </div>
+        @foreach ($cart_array as $cart)
+             
         <div class="order-products">
             <div class="order-col">
-                <div>1x Product Name Goes Here</div>
-                <div>$980.00</div>
+                <div>{{$cart['quantity']}}  x {{$cart['name']}}</div>
+                <div>&#2547;{{Cart::get($cart['id'])->getPriceSum()}}</div>
             </div>
-            <div class="order-col">
-                <div>2x Product Name Goes Here</div>
-                <div>$980.00</div>
-            </div>
+       @endforeach
+            
         </div>
         <div class="order-col">
             <div>Shiping</div>
-            <div><strong>FREE</strong></div>
+            <div><strong>&#2547;50</strong></div>
         </div>
         <div class="order-col">
             <div><strong>TOTAL</strong></div>
-            <div><strong class="order-total">$2940.00</strong></div>
+            <div><strong class="order-total">&#2547;{{Cart::getTotal()+50}}</strong></div>
         </div>
     </div>
     <div class="payment-method">
@@ -71,6 +73,7 @@
     </div>
     <a href="#" class="primary-btn order-submit">Place order</a>
 </div>
-<!-- /Order Details -->
 
+<!-- /Order Details -->
+<div class = "col-md-4"></div>
 @endsection
