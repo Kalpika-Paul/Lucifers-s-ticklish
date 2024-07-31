@@ -12,8 +12,9 @@ class Order extends Model
     protected $fillable=['id', 'cus_id','ship_id', 'pay_id', 'total', 'status' ];
 
     public function Customer() {
-        return $this->belongsTo(Customer::class,'cus_id');
+        return $this->belongsTo(Customer::class, 'cus_id');
     }
+
     public function Shipping() {
         return $this->belongsTo(Shipping::class,'ship_id');
     }

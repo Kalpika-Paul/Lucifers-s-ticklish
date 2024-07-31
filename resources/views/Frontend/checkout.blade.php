@@ -28,18 +28,23 @@
                     <div class="form-group">
                         <input class="input" type="email" name="email" placeholder="Email">
                     </div>
+
                     <div class="form-group">
                         <input class="input" type="text" name="address" placeholder="Address">
                     </div>
+
                     <div class="form-group">
                         <input class="input" type="text" name="city" placeholder="City">
                     </div>
+
                     <div class="form-group">
                         <input class="input" type="text" name="country" placeholder="Country">
                     </div>
+
                     <div class="form-group">
                         <input class="input" type="text" name="zip_code" placeholder="ZIP Code">
                     </div>
+                    
                     <div class="form-group">
                         <input class="input" type="tel" name="phone" placeholder="Phone">
                     </div>

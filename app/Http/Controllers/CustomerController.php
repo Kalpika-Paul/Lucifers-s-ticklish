@@ -32,9 +32,10 @@ class CustomerController extends Controller
     public function customer_register(Request $request){
         
        $data = array();
+       $data['id'] = $request->id;
        $data['name'] = $request->name;
        $data['email'] = $request->email;
-       $data['password'] =($request->password);
+       $data['password'] =$request->password;
        $data['phone'] = $request->phone;
        $id = Customer::insertGetId($data);
        Session::put('id',$id);

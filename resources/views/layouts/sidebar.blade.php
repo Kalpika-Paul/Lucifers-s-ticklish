@@ -146,6 +146,29 @@
                         </ul>
                     </li>
 
+
+
+                    
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon far fa-chart-bar" aria-hidden="true"></i>
+                            <p>
+                                Customer Orders
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            
+                            <li class="nav-item">
+                                <a href="{{route('admin.allorders')}}" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>All Info</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                       
+
                   </ul>
                  
              </li>

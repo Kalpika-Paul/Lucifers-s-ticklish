@@ -9,6 +9,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
@@ -95,5 +96,11 @@ Route::get('/color_Status/{color}', [ColorController::class, 'color_Status'])->n
 //product related
 Route::resource('product', ProductController::class);
 Route::get('/product_Status/{product}', [ProductController::class, 'product_Status'])->name('product.product_Status');
+
+
+//Order related
+
+Route::get('/allorders', [OrderController::class, 'allorders'])->name('admin.allorders');
+
 
 
