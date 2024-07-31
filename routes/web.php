@@ -75,7 +75,7 @@ Route::delete('/category/{category}', [CategoryController::class, 'destroy'])->n
 
 //subcategory route
 Route::resource('subcategory', SubCategoryController::class);
-Route::get('/change-status/{subcategory}', [SubcategoryController::class, 'change_Status'])->name('Subcategory.change_Status');
+Route::get('/change-status/{subcategory}', [SubcategoryController::class, 'change_Status'])->name('subcategory.change_status');
 
 //brand related
 Route::resource('brand', BrandController::class);
@@ -102,5 +102,6 @@ Route::get('/product_Status/{product}', [ProductController::class, 'product_Stat
 
 Route::get('/allorders', [OrderController::class, 'allorders'])->name('admin.allorders');
 
-
+Route::get('/changestatus/{order}', [OrderController::class, 'change_status'])->name('admin.change_status');
+Route::get('/view_order/{order}', [OrderController::class, 'view_order'])->name('admin.view_order');
 

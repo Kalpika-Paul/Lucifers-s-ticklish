@@ -42,7 +42,7 @@ class SubCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function change_Status(Subcategory $subcategory)
+    public function change_status(Subcategory $subcategory)
     {
         if ($subcategory->status == 1) {
             $subcategory->update(['status' => 0]);
@@ -74,7 +74,6 @@ class SubCategoryController extends Controller
     $subcategory =  Subcategory::find($id);
     $subcategory->name = $request->name;
     $subcategory->cat_id=$request->category;
-   
     $subcategory->description = $request->description;
     $subcategory->save();
    

@@ -70,11 +70,9 @@
                                 Deactive
 							</span>
 							@endif
+							
 							@if (session('message'))
-							
-							
-						
-                            @endif
+							@endif
 
 						 </td>
 

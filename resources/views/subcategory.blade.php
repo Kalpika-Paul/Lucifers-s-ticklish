@@ -54,40 +54,42 @@
 						  <td>{{$subcategory->image}}</td>
 
 						  <td class = "center">
+							<td class = "center">
 
-							@if($subcategory->status==1)
-							<span style = "padding: 10px 15px  " 
-							class= "label label-success">
-                                Active
-							</span>
-							@else
-							<span style = "padding: 10px 15px  "  class= "label label-danger">
-                                Deactive
-							</span>
-							@endif
-							@if (session('message'))
+								@if($subcategory->status==1)
+								<span style = "padding: 10px 15px  " 
+								class= "label label-success">
+									Active
+								</span>
+								@else
+								<span style = "padding: 10px 15px  "  class= "label label-danger">
+									Deactive
+								</span>
+								@endif
+								@if (session('message'))
+								
+								
 							
-							
-						
-                            @endif
-
-						 </td>
-
-				   <td class = "row">
-                   
-
-				   <div class = "span2">
-
-                  @if($subcategory->status == 1)
-				<a href="{{ route('Subcategory.change_Status', $subcategory->id) }}" class="btn btn-success">
-					<i class="glyphicon glyphicon-thumbs-up"></i>
-				</a>
-			   @else
-				<a href="{{ route('Subcategory.change_Status', $subcategory->id) }}" class="btn btn-danger">
-					<i class="glyphicon glyphicon-thumbs-down"></i>
-				</a>
-			   @endif
-			     </div>
+								@endif
+	
+							 </td>
+	
+					   <td class = "row">
+					   <div class ="span1"></div>
+					   <div class = "span2">
+	
+					
+					@if($subcategory->status == 1)
+					<a href="{{ route('changeStatus', $subcategory->id) }}" class="btn btn-success">
+						<i class="glyphicon glyphicon-thumbs-up"></i>
+					</a>
+				@else
+					<a href="{{ route('changeStatus', $subcategory->id) }}" class="btn btn-danger">
+						<i class="glyphicon glyphicon-thumbs-down"></i>
+					</a>
+				@endif
+					   </td>
+							  
 			       </td>
 						  
 
@@ -118,20 +120,4 @@
 				
 				
 
-							<div class="card-footer clearfix">
-								<ul class="pagination pagination m-0 float-right">
-								  <li class="page-item"><a class="page-link" href="#">«</a></li>
-								  <li class="page-item"><a class="page-link" href="#">1</a></li>
-								  <li class="page-item"><a class="page-link" href="#">2</a></li>
-								  <li class="page-item"><a class="page-link" href="#">3</a></li>
-								  <li class="page-item"><a class="page-link" href="#">»</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /.card -->
-				</section>
-				<!-- /.content -->
-			</div>
-			<!-- /.content-wrapper -->
 			@endsection

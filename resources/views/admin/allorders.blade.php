@@ -40,6 +40,10 @@
                 <th>Customer Name</th>
                 <th>Order Total</th>
                 <th>Order Date and Time</th>
+                <th>Status</th>
+                <th>Status Icon</th>
+                <th>Edit</th>
+                <th>Delete</th>
                 
                
 
@@ -49,27 +53,55 @@
            @foreach ($orders as $order)
           <tr>
               <td>{{$order->id}}</td>
-              <td>{{ $order->customer->name ?? 'No customer assigned' }}</td>
+              <td>{{$order->customer->name ?? 'No customer assigned' }}</td>
               <td>{{$order->total}}</td>
               <td>{{ \Carbon\Carbon::parse($order->created_at)->format('M d, Y h:i A') }}</td>
               {{-- <td>{{$category->status}}</td> --}}
 
              <td class = "center">
 
-             
-              
+                    @if($order->status == 'active')
+                        <span style="padding: 10px 15px;" class="label label-success">Active</span>
+                    @else
+                        <span style="padding: 10px 15px;" class="label label-danger">Deactive</span>
+                   
+                    @endif
+                    
+                    @if (session('message'))
+                        
+                    @endif
+                
+                
+                <td class="row">
+                    <div class="span1"></div>
+                    <div class="span2">
 
-             </td>
+                        @if($order->status == 'pending')
+                            <a href="{{ route('admin.change_status', $order->id) }}" class="btn btn-danger">
+                                <i class="glyphicon glyphicon-thumbs-down"></i>
+                            </a>
+                        @else
+                            <a href="{{ route('admin.change_status', $order->id) }}" class="btn btn-success">
+                                <i class="glyphicon glyphicon-thumbs-up"></i>
+                            </a>
+                        @endif
+                    </div>
+                </td>
+                
 
-       <td class = "row">
-       <div class ="span1"></div>
-       <div class = "span2">
 
-    
-    
-       </td>
-              
+       <td>
+        <a href="{{route('admin.view_order',$order->id)}}"><button class = "btn btn-primary">Edit</button></a>
+    </td>
+   
+    <td>
+        <form method = 'POST' value = "Delete" action="">
+            @csrf
+            @method('DELETE')
 
+            <button class = "btn btn-danger">Delete</button>
+        </form> 
+        
               
           </tr>
       @endforeach
