@@ -92,4 +92,18 @@ public function product_by_subcat($id){
 
 }
 
+public function search(Request $request){
+
+
+    $products=Product::orderBy('id','desc')->where('name','LIKE','%'.$request->product.'%');
+        if($request->category != "ALL") $products->where('cat_id',$request->category);
+        $products= $products->get();
+        $categories= Category::all();
+        $subcategories= SubCategory::all();
+        $brands= Brand::all();
+        return view('frontend.pages.product_by_cat',compact('categories','subcategories','brands','products'));
+    }
+
 }
+
+

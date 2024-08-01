@@ -167,7 +167,7 @@
                         token="if you have any token validation"
                         postdata="your javascript arrays or objects which requires in backend"
                         order="If you already have the transaction generated for current order"
-                        endpoint="{{ route('payViaAjax')}}"> Pay Now
+                        endpoint="{{ url('/pay-via-ajax') }}"> Pay Now
                 </button>
             </form>
         </div>

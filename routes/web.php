@@ -14,7 +14,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SizeController;
 use App\Http\Controllers\SubCategoryController;
 use App\Http\Controllers\UnitController;
-
+use App\Http\Controllers\SslCommerzPaymentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,11 +30,12 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('Frontend.welcome');
 // });
-
+//homecontroller route
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route:: get('/view_details/{id}', [HomeController::class,'view_details'])->name('Frontend.pages.view_details');
 Route:: get('/product_by_cat/{cat_id}', [HomeController::class,'product_by_cat'])->name('Frontend.pages.product_by_cat');
 Route:: get('/product_by_subcat/{subcat_id}', [HomeController::class,'product_by_subcat'])->name('Frontend.pages.product_by_subcat');
+Route:: get('/search', [HomeController::class,'search'])->name('Frontend.pages.search');
 
 //for add to cart
 Route::post('/add_to_cart', [CartController::class, 'add_to_cart'])->name('Frontend.pages.add_to_cart');
@@ -56,9 +57,9 @@ Route::get('/customer_logout', [CustomerController::class, 'customer_logout'])->
 
 //shiping
 
-Route::post('/save_shipping_details', [CheckoutController::class, 'save_shipping_details'])->name('Frontend.pages.save_shipping_details');
-Route::get('/payment', [CheckoutController::class, 'payment'])->name('Frontend.pages.payment');
-Route::post('/order_place', [CheckoutController::class, 'order_place'])->name('Frontend.pages.order_place');
+// Route::post('/save_shipping_details', [CheckoutController::class, 'save_shipping_details'])->name('Frontend.pages.save_shipping_details');
+// Route::get('/payment', [CheckoutController::class, 'payment'])->name('Frontend.pages.payment');
+// Route::post('/order_place', [CheckoutController::class, 'order_place'])->name('Frontend.pages.order_place');
 
 //Dashboard route
 Route::get('/login', [LoginController::class, 'index'])->name('Login');
@@ -105,3 +106,16 @@ Route::get('/allorders', [OrderController::class, 'allorders'])->name('admin.all
 Route::get('/changestatus/{order}', [OrderController::class, 'change_status'])->name('admin.change_status');
 Route::get('/view_order/{order}', [OrderController::class, 'view_order'])->name('admin.view_order');
 
+//SSLCOMMERZ START
+Route::get('/checkout', [SslCommerzPaymentController::class, 'exampleEasyCheckout'])->name('Frontend.checkout');
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax'])->name('payViaAjax');
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
